@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: scripts
+data:
+  # scripts, to be mounted at /home/${user}/scripts
+  weechat.sh: |
+    #!/bin/bash
+    kubectl exec -it deployment/weechat -c weechat -- tmux attach
