@@ -19,6 +19,9 @@ RUN echo ${TZ} > /etc/timezone
 # set MOTD
 RUN echo "Welcome to hubbe.club!" > /etc/motd
 
+# deactivate short moduli for Diffie-Hellman key exchanges
+RUN awk '$5 >= 3071' /etc/ssh/moduli > /etc/ssh/moduli.tmp && mv /etc/ssh/moduli.tmp /etc/ssh/moduli
+
 # install kubectl for exec-ing into other pods
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
     mv kubectl /usr/bin/kubectl && \
