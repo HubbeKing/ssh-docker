@@ -10,7 +10,7 @@ RUN apk add --update --no-cache \
 ENV PUID=1000
 ENV PGID=1000
 ENV USER=hubbe
-ENV KUBECTL_VERSION=1.18.3
+ENV KUBECTL_VERSION=1.18.4
 ENV TZ=Europe/Helsinki
 
 # set timezone
